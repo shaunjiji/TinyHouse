@@ -5,9 +5,5 @@
         "sourceType": "module"
     },
     "extends": ["plugin:@typescript-eslint/recommended"],
-    "env": {"node": true},
-    "rules": {
-        "indent": "off",
-        "@typescript-eslint/indent": "off"
-    }
+    "env": {"node": true}
 }
