@@ -10,7 +10,6 @@ interface Listing {
     rating: number;
 }
 
-
 export const listings: Listing[] = [
     {
       id: "001",
