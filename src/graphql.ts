@@ -1,4 +1,4 @@
-import { GraphQLID, GraphQLInt, GraphQLObjectType, GraphQLString, GraphQLSchema} from "graphql";
+import { GraphQLID, GraphQLInt, GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLNonNull} from "graphql";
 
 
 const Listing = new GraphQLObjectType({
@@ -15,6 +15,7 @@ const Listing = new GraphQLObjectType({
         rating: { type: GraphQLInt}
     }
 })
+
 const query = new GraphQLObjectType({
     name: 'Query',
     fields: {
