@@ -33,7 +33,17 @@ const mutation = new GraphQLObjectType({
     fields: {
         deleteListing: {
             type: new GraphQLNonNull(Listing),
-            resolve: () => 'Hello from the Mutation!'
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLID) }
+            },
+            resolve: (_root, { id }) => {
+                for (let i = 0; i < listings.length; i++){
+                    if (listings[i].id === id) {
+                        return listings.splice(i, 1)[0];
+                    }
+                }
+                throw new Error("failed to delete listing")
+            }
         }
     }
 });
