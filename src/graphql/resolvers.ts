@@ -1,11 +1,15 @@
 import { IResolvers } from "@graphql-tools/utils";
 
 import { listings } from '../listings';
+import { bookings } from "../bookings";
 
 export const resolvers: IResolvers = {
     Query: {
         listings: () => {
             return listings;
+        },
+        bookings: () => {
+            return bookings;
         }
     },
     Mutation: {
@@ -16,6 +20,11 @@ export const resolvers: IResolvers = {
                 }
             }
             throw new Error("failed to delete listing")
+        },
+        createBooking: (_root: undefined, {id, timestamp}: {id:string, timestamp: string}) => {
+            const booking = {
+                
+            }
         }
     }
 }
