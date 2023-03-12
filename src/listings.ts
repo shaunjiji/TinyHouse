@@ -8,6 +8,7 @@ interface Listing {
     numOfBeds: number;
     numOfBaths: number;
     rating: number;
+    bookings: string[];
 }
 
 export const listings: Listing[] = [
@@ -21,7 +22,8 @@ export const listings: Listing[] = [
       numOfGuests: 2,
       numOfBeds: 1,
       numOfBaths: 2,
-      rating: 5
+      rating: 5,
+      bookings: []
     },
     {
       id: "002",
@@ -33,7 +35,8 @@ export const listings: Listing[] = [
       numOfGuests: 2,
       numOfBeds: 1,
       numOfBaths: 1,
-      rating: 4
+      rating: 4,
+      bookings: []
     },
     {
       id: "003",
@@ -45,6 +48,7 @@ export const listings: Listing[] = [
       numOfGuests: 3,
       numOfBeds: 2,
       numOfBaths: 2,
-      rating: 3
+      rating: 3,
+      bookings: []
     }
   ];
