@@ -1,13 +1,13 @@
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import express from 'express';
 import {ApolloServer} from 'apollo-server-express'
-import {schema} from "./graphql"
+import {typeDefs, resolvers } from "./graphql"
 
 
 const app = express();
 const port = 9000;
 
-const server = new ApolloServer({schema, plugins: [ApolloServerPluginLandingPageGraphQLPlayground],});
+const server = new ApolloServer({typeDefs, resolvers, plugins: [ApolloServerPluginLandingPageGraphQLPlayground],});
 
 server.start().then(() => {server.applyMiddleware({ app, path: '/api' })
     app.listen(port);
