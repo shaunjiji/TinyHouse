@@ -19,6 +19,7 @@ export const typeDefs = gql`
         numOfBeds: Int!
         numOfBaths: Int!
         rating: Int!
+        numOfBookings: Int!
     }
     
     type Query {
