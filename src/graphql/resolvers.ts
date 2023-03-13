@@ -42,7 +42,7 @@ export const resolvers: IResolvers = {
         favouriteListing: (_root: undefined, {id}: {id: string}) => {
             for (let i = 0; i < listings.length; i++){
                 if (listings[i].id === id){
-                    listings[i].favorite = true;
+                    listings[i].favorite = !listings[i].favorite;
                     return listings[i];
                 }
             }
