@@ -1,7 +1,7 @@
 import { IResolvers } from "@graphql-tools/utils";
 
 import { Listing, listings } from '../listings';
-import { bookings } from "../bookings";
+import { Booking, bookings } from "../bookings";
 
 
 export const resolvers: IResolvers = {
@@ -23,9 +23,21 @@ export const resolvers: IResolvers = {
             throw new Error("failed to delete listing")
         },
         createBooking: (_root: undefined, {id, timestamp}: {id:string, timestamp: string}) => {
-            const booking = {
-                
+          for (let i = 0; i < listings.length; i++){
+            if (listings[i].id === id){
+                let numOfBookings = listings[i].bookings.length;
+                const newBooking: Booking = {
+                    id: numOfBookings.toString(),
+                    title: listings[i].title,
+                    image: listings[i].image,
+                    address: listings[i].address,
+                    timestamp
+                };
+                bookings.push(newBooking);
+                listings[i].bookings.push(newBooking.id);
+                return newBooking;
             }
+          }
         }
     },
     Listing: {

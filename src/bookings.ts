@@ -1,4 +1,4 @@
-interface Booking {
+export interface Booking {
     id: string;
     title: string;
     image: string;
