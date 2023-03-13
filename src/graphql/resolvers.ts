@@ -38,6 +38,9 @@ export const resolvers: IResolvers = {
                 return newBooking;
             }
           }
+        },
+        favouriteListing: (_root: undefined, {id}: {id: string}) => {
+            
         }
     },
     Listing: {

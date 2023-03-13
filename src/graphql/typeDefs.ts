@@ -20,6 +20,7 @@ export const typeDefs = gql`
         numOfBaths: Int!
         rating: Int!
         numOfBookings: Int!
+        favorite: Boolean!
     }
     
     type Query {
