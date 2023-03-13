@@ -37,15 +37,17 @@ export const resolvers: IResolvers = {
                 listings[i].bookings.push(newBooking.id);
                 return newBooking;
             }
+            throw new Error ("failed to create booking")
           }
         },
-        favouriteListing: (_root: undefined, {id}: {id: string}) => {
+        favoriteListing: (_root: undefined, {id}: {id: string}) => {
             for (let i = 0; i < listings.length; i++){
                 if (listings[i].id === id){
                     listings[i].favorite = !listings[i].favorite;
                     return listings[i];
                 }
             }
+            throw new Error ("failed to favorite listing");
         }
     },
     Listing: {

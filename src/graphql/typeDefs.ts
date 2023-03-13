@@ -31,5 +31,6 @@ export const typeDefs = gql`
     type Mutation {
         deleteListing(id: ID!): Listing!
         createBooking(id: ID!, timestamp: String!): Booking!
+        favoriteListing(id: ID!): Listing!
     }
     `;
