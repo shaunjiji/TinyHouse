@@ -1,7 +1,8 @@
 import { IResolvers } from "@graphql-tools/utils";
 
-import { listings } from '../listings';
+import { Listing, listings } from '../listings';
 import { bookings } from "../bookings";
+
 
 export const resolvers: IResolvers = {
     Query: {
@@ -26,5 +27,8 @@ export const resolvers: IResolvers = {
                 
             }
         }
+    },
+    Listing: {
+        numOfBookings: (listing: Listing): number => listing.bookings.length
     }
 }
