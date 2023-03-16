@@ -9,4 +9,9 @@ const url = `mongodb+srv://${user}:${userPassword}@${cluster}.mongodb.net/?retry
 export const connectDatabase = async () => {
     const client = await MongoClient.connect(url);
 
+    const db = client.db('main');
+   
+    return {
+        listings: db.collection('test_listings')
+    };
 }
