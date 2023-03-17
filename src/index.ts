@@ -1,4 +1,3 @@
-
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import express, {Application} from 'express';
 import {ApolloServer} from 'apollo-server-express'
