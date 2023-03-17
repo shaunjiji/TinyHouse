@@ -1,5 +1,5 @@
 import { IResolvers } from "@graphql-tools/utils";
-import { Database } from "../lib/types";
+import { Database, Listing } from "../lib/types";
 import { ObjectId } from "mongodb";
 
 
@@ -10,7 +10,7 @@ export const resolvers: IResolvers = {
         }
     },
     Mutation: {
-        deleteListing:async (_root: undefined, {id}: { id: string }, { db }: { db: Database }) => {
+        deleteListing: async (_root: undefined, {id}: { id: string }, { db }: { db: Database }) => {
             const deleteRes = await db.listings.findOneAndDelete({
                 _id: new ObjectId(id)
             })
@@ -20,5 +20,8 @@ export const resolvers: IResolvers = {
             }
             return deleteRes.value
         }
+    },
+    Listing: {
+        id: (listing: Listing) => listing._id
     }
 }
