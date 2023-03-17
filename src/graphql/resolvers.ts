@@ -2,15 +2,13 @@ import { IResolvers } from "@graphql-tools/utils";
 
 import { Listing, listings } from '../listings';
 import { Booking, bookings } from "../bookings";
+import { Database } from "../lib/types";
 
 
 export const resolvers: IResolvers = {
     Query: {
-        listings: () => {
-            return listings;
-        },
-        bookings: () => {
-            return bookings;
+        listings: async (_root: undefined, _args: {}, { db }: { db: Database }) => {
+            return await db.listings.find({}).toArray();
         }
     },
     Mutation: {
