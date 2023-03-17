@@ -16,8 +16,7 @@ const server = new ApolloServer({typeDefs, resolvers, context: () => ({ db }), p
 server.start().then(() => {server.applyMiddleware({ app, path: '/api' })
     app.listen(port);
     console.log(`[app]: http://localhost:${port}`)});
-    const listings = await db.listings.find({}).toArray();
-    console.log(listings);
+
 };
 
 mount(express());
