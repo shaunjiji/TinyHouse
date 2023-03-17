@@ -22,6 +22,6 @@ export const resolvers: IResolvers = {
         }
     },
     Listing: {
-        id: (listing: Listing) => listing._id
+        id: (listing: Listing) => listing._id.toString();
     }
 }
