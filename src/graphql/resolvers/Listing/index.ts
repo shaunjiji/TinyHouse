@@ -1,5 +1,5 @@
 import { IResolvers } from "@graphql-tools/utils";
-import { Database, Listing } from "../lib/types";
+import { Database, Listing } from "../../../lib/types";
 import { ObjectId } from "mongodb";
 
 
