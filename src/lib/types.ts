@@ -9,8 +9,8 @@ export interface BookingsIndexYear {
 }   
 
 export enum ListingType{
-    Apartment = "apartment",
-    House = "house"
+    Apartment = "APARTMENT",
+    House = "HOUSE"
 }
 
 export interface Booking {
@@ -33,7 +33,7 @@ export interface Listing {
     admin: string;
     city: string;
     bookings: ObjectId[];
-    bookingsIndex: BookingsIndexYear;
+    bookingsIndex: BookingsIndex;
     price: number;
     numOfGuests: number;
 }
