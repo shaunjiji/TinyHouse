@@ -1,5 +1,8 @@
 import { Collection, ObjectId } from "mongodb";
 
+export interface Booking {
+    _id: ObjectId;
+}
 export interface Listing {
     _id: ObjectId;
 
