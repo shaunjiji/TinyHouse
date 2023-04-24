@@ -3,10 +3,6 @@
 import { connectDatabase } from "../src/database";
 
 
-
-
-
-
 const clear = async () => {
     try {
         console.log('[clear] : running... ')
@@ -35,4 +31,4 @@ const clear = async () => {
     }
 }
 
-seed();
+clear();
