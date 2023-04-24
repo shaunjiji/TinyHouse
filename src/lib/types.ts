@@ -6,7 +6,7 @@ export interface BookingsIndexMonth {
 
 export interface BookingsIndexYear {
     [key: string]: BookingsIndexMonth;
-}
+}   
 
 export enum ListingType{
     Apartment = "apartment",
@@ -15,6 +15,10 @@ export enum ListingType{
 
 export interface Booking {
     _id: ObjectId;
+    listing: ObjectId;
+    tenant: string;
+    checkIn: string;
+    checkOut: string;
 }
 
 export interface Listing {
