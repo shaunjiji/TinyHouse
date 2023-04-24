@@ -12,6 +12,12 @@ export interface Listing {
     rating: number;
 }
 
+export interface User {
+    _id: ObjectId
+
+}
+
 export interface Database {
     listings: Collection<Listing>;
+    users: Collection<User>
 }
