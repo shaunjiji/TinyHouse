@@ -8,6 +8,10 @@ export interface BookingsIndexYear {
     [key: string]: BookingsIndexMonth;
 }   
 
+export interface BookingsIndex {
+    [key: string]: BookingsIndexYear
+}
+
 export enum ListingType{
     Apartment = "APARTMENT",
     House = "HOUSE"
