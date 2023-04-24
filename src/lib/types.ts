@@ -1,11 +1,26 @@
 import { Collection, ObjectId } from "mongodb";
 
+export enum ListingType{
+    Apartment = "apartment",
+    House = "house"
+}
+
 export interface Booking {
     _id: ObjectId;
 }
 
 export interface Listing {
     _id: ObjectId;
+    title: string;
+    description: string;
+    image: string;
+    host: string;
+    type: ListingType;
+    address: string;
+    country: string;
+    admin: string;
+    city: string;
+    bookings: ObjectId[];
 }
 
 export interface User {
