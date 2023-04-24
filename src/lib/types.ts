@@ -30,6 +30,8 @@ export interface Listing {
     city: string;
     bookings: ObjectId[];
     bookingsIndex: BookingsIndexYear;
+    price: number;
+    numOfGuests: number;
 }
 
 export interface User {
