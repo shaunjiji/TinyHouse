@@ -25,9 +25,6 @@ export enum ListingType{
     House = "HOUSE"
 }
 
-export interface Viewer {
-
-}
 
 export interface Booking {
     _id: ObjectId;
