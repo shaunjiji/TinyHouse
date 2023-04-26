@@ -1,16 +1,24 @@
 import { IResolvers } from "@graphql-tools/utils";
 import { Google } from "../../../lib/api"
 import { Viewer } from "../../../lib/types"
+import { LogInArgs } from "./types";
 
 export const viewerResolvers: IResolvers = {
     Query: {
-        authUrl: () => {
-            return "Query.authUrl"
+        authUrl: (): string => {
+           try {
+            return Google.authUrl;
+           }
+           catch(error) {
+            throw new Error(`Failed to query Google Auth URL: ${error}`)
+           }
         }
     },
     Mutation: {
-        logIn: () => {
-            return "Mutation.logIn";
+        logIn: (_root: undefined, { input }: LogInArgs) => {
+           try {
+            
+           }
         },
         logOnput: () => {
             return "Mutation.logOut";
