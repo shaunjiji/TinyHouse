@@ -22,4 +22,4 @@ export const Google = {
         });
         return { user: data };
     }
-}
+};
