@@ -1,5 +1,13 @@
 import { Collection, ObjectId } from "mongodb";
 
+export interface Viewer {
+    _id?: string;
+    token?: string;
+    avatar?: string;
+    walletId?: string;
+    didRequest: boolean;
+}
+
 export interface BookingsIndexMonth {
     [key: string]: boolean;
 }
@@ -15,6 +23,10 @@ export interface BookingsIndex {
 export enum ListingType{
     Apartment = "APARTMENT",
     House = "HOUSE"
+}
+
+export interface Viewer {
+
 }
 
 export interface Booking {
