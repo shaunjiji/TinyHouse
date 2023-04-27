@@ -38,7 +38,41 @@ const logInViaGoogle = async (
     if (!userId || !userName || !userAvatar || !userEmail) {
         throw new Error("Google login error");
       }
-}
+    
+      const updateRes = await db.users.findOneAndUpdate(
+        { _id: userId },
+        {
+          $set: {
+            name: userName,
+            avatar: userAvatar,
+            contact: userEmail,
+            token
+          }
+        },
+        { returnOriginal: false }
+      );
+    
+      let viewer = updateRes.value;
+    
+      if (!viewer) {
+        const insertResult = await db.users.insertOne({
+          _id: userId,
+          token,
+          name: userName,
+          avatar: userAvatar,
+          contact: userEmail,
+          income: 0,
+          bookings: [],
+          listings: []
+        });
+    
+        viewer = await db.users.findOne({_id: insertResult.insertedId})
+      }
+    
+      return viewer;
+   
+    
+};
 
 export const viewerResolvers: IResolvers = {
     Query: {
