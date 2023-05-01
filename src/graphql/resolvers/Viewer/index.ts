@@ -9,7 +9,7 @@ const logInViaGoogle = async (
     code: string, 
     token: string, 
     db: Database): 
-    Promise<User> | undefined => {
+    Promise<User | undefined> => {
     const { user } = await Google.logIn(code);
     
     if (!user) {
@@ -49,7 +49,7 @@ const logInViaGoogle = async (
             token
           }
         },
-        { returnOriginal: false }
+        { returnDocument: 'after' }
       );
     
       let viewer = updateRes.value;
@@ -68,10 +68,7 @@ const logInViaGoogle = async (
     
         viewer = await db.users.findOne({_id: insertResult.insertedId})
       }
-    
       return viewer;
-   
-    
 };
 
 export const viewerResolvers: IResolvers = {
@@ -86,7 +83,7 @@ export const viewerResolvers: IResolvers = {
         }
     },
     Mutation: {
-        logIn: (_root: undefined, { input }: LogInArgs, { db }: { db: Database}): Promise<Viewer> => {
+        logIn: async (_root: undefined, { input }: LogInArgs, { db }: { db: Database}): Promise<Viewer> => {
            try {
             const code = input ? input.code : null;
             const token = crypto.randomBytes(16).toString("hex");
