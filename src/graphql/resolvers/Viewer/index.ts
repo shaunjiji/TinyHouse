@@ -86,7 +86,7 @@ export const viewerResolvers: IResolvers = {
         }
     },
     Mutation: {
-        logIn: (_root: undefined, { input }: LogInArgs, { db }: { db: Database}) => {
+        logIn: (_root: undefined, { input }: LogInArgs, { db }: { db: Database}): Promise<Viewer> => {
            try {
             const code = input ? input.code : null;
             const token = crypto.randomBytes(16).toString("hex");
@@ -112,8 +112,13 @@ export const viewerResolvers: IResolvers = {
             throw new Error(`Failed to log in: ${error}`)
            }
         },
-        logOnput: () => {
-            return "Mutation.logOut";
+        logOut: (): Viewer => {
+            try {
+              return { didRequest: true}
+            }
+            catch(error) {
+              throw new Error(`Failed to log out: ${error}`)
+            }
         }
     },
     Viewer: {
