@@ -68,7 +68,10 @@ const logInViaGoogle = async (
     
         viewer = await db.users.findOne({_id: insertResult.insertedId})
       }
-      return viewer;
+
+      
+      return viewer ?? undefined; //change made
+
 };
 
 export const viewerResolvers: IResolvers = {
